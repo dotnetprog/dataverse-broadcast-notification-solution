@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{16ac9028-5ff7-48d4-99cc-a7560b2d828f}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{6351db4f-aab5-4a35-88be-5e76b25f4a79}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+            <label description="Général" languagecode="1036" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{b03440f0-25ff-4508-bd96-aea8985d5a26}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                    <label description="Général" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d6d5fd0a-3955-4441-9856-8302f3dfb5f2}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="fdn_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="fdn_name" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{db619370-173f-4753-86e5-80f5eec937dd}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="fdn_appnotificationconfigid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="fdn_appnotificationconfigid" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{adb86778-c23e-497e-86b9-34785d04b325}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="fdn_language" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="fdn_language" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{56e845fc-22b4-4657-a580-c3197baef916}" locklevel="0" colspan="1" rowspan="5" auto="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="fdn_contentmessage" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="fdn_contentmessage" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{a362bead-6f68-4280-91fe-1912ab9c884b}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{20a69980-09f1-4ccf-916c-16702871701e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{7612282b-a915-4e3c-b058-af5aedc1bed9}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{93beefdf-fa8d-427d-a9be-dda984469c4e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6b5059b3-7210-4b3f-837d-55ac206a4551}" colspan="1" rowspan="1">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{1d09d37c-596e-420c-af2f-2acfcbbf8050}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{36a19285-1bcd-4f42-aa2f-f0bf7bf1fa3c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3efc4ecf-82d0-44b5-bf27-5c0ae351f7a3}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{8ece6341-9698-4230-b03b-461e42c20e2f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <formLibraries>
+        <Library name="fdn_/scripts/broadcast.js" libraryUniqueId="{4bb75e94-3368-4d26-a63c-e6fd61dff765}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="broadcast.forms.fdn_localizednotificationcontent.onLoad" libraryName="fdn_/scripts/broadcast.js" handlerUniqueId="{96ef6d0d-d5be-4062-8202-f4588abda3a6}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

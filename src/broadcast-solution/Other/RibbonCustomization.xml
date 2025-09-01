@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="fdn.ApplicationRibbon.{!EntityLogicalName}.Buttons.Broadcast.CustomAction" Location="Mscrm.HomepageGrid.{!EntityLogicalName}.MainTab.Management.Controls._children" Sequence="5">
+      <CommandUIDefinition>
+        <Button Command="fdn.ApplicationRibbon.Commands.Broadcast" Id="fdn.ApplicationRibbon.{!EntityLogicalName}.Buttons.Broadcast" LabelText="$LocLabels:fdn.ApplicationRibbon.Buttons.Broadcast.LabelText" Sequence="5" TemplateAlias="o1" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="fdn.ApplicationRibbon.{!EntityLogicalName}.FormButtons.Broadcast.CustomAction" Location="Mscrm.Form.{!EntityLogicalName}.MainTab.Save.Controls._children" Sequence="5">
+      <CommandUIDefinition>
+        <Button Command="fdn.ApplicationRibbon.Commands.Broadcast" Id="fdn.ApplicationRibbon.{!EntityLogicalName}.FormButtons.Broadcast" LabelText="$LocLabels:fdn.ApplicationRibbon.FormButtons.Broadcast.LabelText" Sequence="5" TemplateAlias="o1" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="fdn.ApplicationRibbon.Commands.Broadcast">
+      <EnableRules>
+        <EnableRule Id="fdn.ApplicationRibbon.EnableRules.renderNotifications" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="broadcast.ribbon.application.renderNotifications" Library="$webresource:fdn_/scripts/broadcast.js" />
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules>
+      <EnableRule Id="fdn.ApplicationRibbon.EnableRules.renderNotifications">
+        <CustomRule FunctionName="broadcast.ribbon.application.renderNotifications" Library="$webresource:fdn_/scripts/broadcast.js" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="fdn.ApplicationRibbon.Buttons.Broadcast.LabelText">
+      <Titles>
+        <Title description="Not supposed to be seen" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="fdn.ApplicationRibbon.FormButtons.Broadcast.LabelText">
+      <Titles>
+        <Title description="Not supposed to be seen" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

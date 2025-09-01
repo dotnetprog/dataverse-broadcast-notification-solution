@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{54d75ad1-7f86-f011-b4cc-6045bdccf7ac}</WebResourceId>
+  <Name>fdn_/images/alertoff.svg</Name>
+  <DisplayName>alertoff.svg</DisplayName>
+  <WebResourceType>11</WebResourceType>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/fdn_imagesalertoffsvg54D75AD1-7F86-F011-B4CC-6045BDCCF7AC</FileName>
+</WebResource>

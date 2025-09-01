@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{cea5874e-07f7-4784-806c-12e8a5918e79}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="fdn_name" select="1" icon="1" preview="1">
+        <row name="result" id="fdn_broadcastappnotificationid">
+          <cell name="fdn_name" width="300" />
+          <cell name="fdn_message" width="300" />
+          <cell name="fdn_level" width="150" />
+          <cell name="modifiedby" width="250" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="fdn_broadcastappnotification">
+          <attribute name="fdn_broadcastappnotificationid" />
+          <attribute name="fdn_name" />
+          <attribute name="createdon" />
+          <order attribute="fdn_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="fdn_message" />
+          <attribute name="fdn_level" />
+          <attribute name="modifiedby" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Draft App Notifications" languagecode="1033" />
+      <LocalizedName description="Notification d'applications en brouillons" languagecode="1036" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

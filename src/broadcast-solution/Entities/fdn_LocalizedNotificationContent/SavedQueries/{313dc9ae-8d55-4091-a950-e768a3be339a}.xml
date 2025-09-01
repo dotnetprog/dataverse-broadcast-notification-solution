@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{313dc9ae-8d55-4091-a950-e768a3be339a}</savedqueryid>
+    <layoutxml>
+      <grid name="fdn_localizednotificationcontents" jump="fdn_name" select="1" icon="1" preview="1">
+        <row name="fdn_localizednotificationcontent" id="fdn_localizednotificationcontentid">
+          <cell name="fdn_name" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="fdn_localizednotificationcontent">
+          <attribute name="fdn_localizednotificationcontentid" />
+          <attribute name="fdn_name" />
+          <attribute name="createdon" />
+          <order attribute="fdn_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Localized Notification Content Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

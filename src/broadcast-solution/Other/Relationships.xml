@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityRelationship Name="business_unit_fdn_broadcastappnotification" />
+  <EntityRelationship Name="business_unit_fdn_localizednotificationcontent" />
+  <EntityRelationship Name="fdn_localizednotificationcontent_AppNotificationConfigId_fdn_broadcastappnotification" />
+  <EntityRelationship Name="lk_fdn_broadcastappnotification_createdby" />
+  <EntityRelationship Name="lk_fdn_broadcastappnotification_modifiedby" />
+  <EntityRelationship Name="lk_fdn_localizednotificationcontent_createdby" />
+  <EntityRelationship Name="lk_fdn_localizednotificationcontent_modifiedby" />
+  <EntityRelationship Name="owner_fdn_broadcastappnotification" />
+  <EntityRelationship Name="owner_fdn_localizednotificationcontent" />
+  <EntityRelationship Name="team_fdn_broadcastappnotification" />
+  <EntityRelationship Name="team_fdn_localizednotificationcontent" />
+  <EntityRelationship Name="user_fdn_broadcastappnotification" />
+  <EntityRelationship Name="user_fdn_localizednotificationcontent" />
+</EntityRelationships>

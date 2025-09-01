@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="fdn.fdn_broadcastappnotification.Button.Publish.CustomAction" Location="Mscrm.Form.fdn_broadcastappnotification.MainTab.Save.Controls._children" Sequence="65">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:fdn.fdn_broadcastappnotification.Button.Publish.Alt" Command="fdn.fdn_broadcastappnotification.Command.Publish" Id="fdn.fdn_broadcastappnotification.Button.Publish" LabelText="$LocLabels:fdn.fdn_broadcastappnotification.Button.Publish.LabelText" Sequence="65" TemplateAlias="o2" ToolTipTitle="$LocLabels:fdn.fdn_broadcastappnotification.Button.Publish.ToolTipTitle" ToolTipDescription="$LocLabels:fdn.fdn_broadcastappnotification.Button.Publish.ToolTipDescription" ModernImage="$webresource:fdn_/images/alerton.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="fdn.fdn_broadcastappnotification.Buttons.Unpublish.CustomAction" Location="Mscrm.Form.fdn_broadcastappnotification.MainTab.Save.Controls._children" Sequence="63">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:fdn.fdn_broadcastappnotification.Buttons.Unpublish.Alt" Command="fdn.fdn_broadcastappnotification.Command.Unpublish" Id="fdn.fdn_broadcastappnotification.Buttons.Unpublish" LabelText="$LocLabels:fdn.fdn_broadcastappnotification.Buttons.Unpublish.LabelText" Sequence="63" TemplateAlias="o2" ToolTipTitle="$LocLabels:fdn.fdn_broadcastappnotification.Buttons.Unpublish.ToolTipTitle" ToolTipDescription="$LocLabels:fdn.fdn_broadcastappnotification.Buttons.Unpublish.ToolTipDescription" ModernImage="$webresource:fdn_/images/alertoff.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="fdn.Mscrm.Form.fdn_broadcastappnotification.Activate.Hide" Location="Mscrm.Form.fdn_broadcastappnotification.Activate" />
+    <HideCustomAction HideActionId="fdn.Mscrm.Form.fdn_broadcastappnotification.Deactivate.Hide" Location="Mscrm.Form.fdn_broadcastappnotification.Deactivate" />
+    <HideCustomAction HideActionId="fdn.Mscrm.HomepageGrid.fdn_broadcastappnotification.Activate.Hide" Location="Mscrm.HomepageGrid.fdn_broadcastappnotification.Activate" />
+    <HideCustomAction HideActionId="fdn.Mscrm.HomepageGrid.fdn_broadcastappnotification.Deactivate.Hide" Location="Mscrm.HomepageGrid.fdn_broadcastappnotification.Deactivate" />
+    <HideCustomAction HideActionId="fdn.Mscrm.SubGrid.fdn_broadcastappnotification.Activate.Hide" Location="Mscrm.SubGrid.fdn_broadcastappnotification.Activate" />
+    <HideCustomAction HideActionId="fdn.Mscrm.SubGrid.fdn_broadcastappnotification.Deactivate.Hide" Location="Mscrm.SubGrid.fdn_broadcastappnotification.Deactivate" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="fdn.fdn_broadcastappnotification.Command.Publish">
+      <EnableRules>
+        <EnableRule Id="fdn.fdn_broadcastappnotification.EnableRules.NotPublished" />
+        <EnableRule Id="fdn.fdn_broadcastappnotification.EnableRules.FormIsNotCreateMode" />
+        <EnableRule Id="fdn.fdn_broadcastappnotification.EnableRule.CanEdit" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="broadcast.ribbon.fdn_broadcastappnotification.PublishNotification" Library="$webresource:fdn_/scripts/broadcast.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="fdn.fdn_broadcastappnotification.Command.Unpublish">
+      <EnableRules>
+        <EnableRule Id="fdn.fdn_broadcastappnotification.EnableRules.NotDraft" />
+        <EnableRule Id="fdn.fdn_broadcastappnotification.EnableRules.FormIsNotCreateMode" />
+        <EnableRule Id="fdn.fdn_broadcastappnotification.EnableRule.CanEdit" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="broadcast.ribbon.fdn_broadcastappnotification.UnpublishNotification" Library="$webresource:fdn_/scripts/broadcast.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules>
+      <EnableRule Id="fdn.fdn_broadcastappnotification.EnableRule.CanEdit">
+        <RecordPrivilegeRule PrivilegeType="Write" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="fdn.fdn_broadcastappnotification.EnableRules.FormIsNotCreateMode">
+        <FormStateRule State="Create" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="fdn.fdn_broadcastappnotification.EnableRules.NotDraft">
+        <ValueRule Field="statuscode" Value="1" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="fdn.fdn_broadcastappnotification.EnableRules.NotPublished">
+        <ValueRule Field="statuscode" Value="2" InvertResult="true" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="fdn.fdn_broadcastappnotification.Button.Publish.Alt">
+      <Titles>
+        <Title description="Publish" languagecode="1033" />
+        <Title description="Publier" languagecode="1036" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="fdn.fdn_broadcastappnotification.Button.Publish.LabelText">
+      <Titles>
+        <Title description="Publish" languagecode="1033" />
+        <Title description="Publier" languagecode="1036" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="fdn.fdn_broadcastappnotification.Button.Publish.ToolTipDescription">
+      <Titles>
+        <Title description="Publish the notification which makes it available to all users" languagecode="1033" />
+        <Title description="Cette notification sera diffusé aux utilisateurs." languagecode="1036" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="fdn.fdn_broadcastappnotification.Button.Publish.ToolTipTitle">
+      <Titles>
+        <Title description="Publish" languagecode="1033" />
+        <Title description="Publier" languagecode="1036" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="fdn.fdn_broadcastappnotification.Buttons.Unpublish.Alt">
+      <Titles>
+        <Title description="Unpublish" languagecode="1033" />
+        <Title description="Dépublier" languagecode="1036" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="fdn.fdn_broadcastappnotification.Buttons.Unpublish.LabelText">
+      <Titles>
+        <Title description="Unpublish" languagecode="1033" />
+        <Title description="Dépublier" languagecode="1036" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="fdn.fdn_broadcastappnotification.Buttons.Unpublish.ToolTipDescription">
+      <Titles>
+        <Title description="This notification will be no longer shown to users" languagecode="1033" />
+        <Title description="Cette notification cessera d'être diffusé" languagecode="1036" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="fdn.fdn_broadcastappnotification.Buttons.Unpublish.ToolTipTitle">
+      <Titles>
+        <Title description="Unpublish" languagecode="1033" />
+        <Title description="Dépublier" languagecode="1036" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>
