@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <WebResourceId>{e8c019fb-8086-f011-b4cc-7ced8d068474}</WebResourceId>
-  <Name>fdn_/images/broadcast.svg</Name>
-  <DisplayName>broadcast.svg</DisplayName>
-  <WebResourceType>11</WebResourceType>
+  <WebResourceId>{e05a9c57-3187-f011-b4cc-7ced8d068474}</WebResourceId>
+  <Name>fdn_/images/icon_megaphone.png</Name>
+  <DisplayName>icon_megaphone.png</DisplayName>
+  <WebResourceType>5</WebResourceType>
   <IntroducedVersion>1.0.0.0</IntroducedVersion>
   <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
   <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
   <IsCustomizable>1</IsCustomizable>
   <CanBeDeleted>1</CanBeDeleted>
   <IsHidden>0</IsHidden>
-  <FileName>/WebResources/fdn_imagesbroadcastsvgE8C019FB-8086-F011-B4CC-7CED8D068474</FileName>
+  <FileName>/WebResources/fdn_imagesicon_megaphonepngE05A9C57-3187-F011-B4CC-7CED8D068474</FileName>
 </WebResource>

@@ -5,12 +5,15 @@
     <entity Name="fdn_LocalizedNotificationContent">
       <LocalizedNames>
         <LocalizedName description="Localized Notification Content" languagecode="1033" />
+        <LocalizedName description="Contenu de notification localisé" languagecode="1036" />
       </LocalizedNames>
       <LocalizedCollectionNames>
         <LocalizedCollectionName description="Localized Notification Contents" languagecode="1033" />
+        <LocalizedCollectionName description="Contenu des notifications localisées" languagecode="1036" />
       </LocalizedCollectionNames>
       <Descriptions>
         <Description description="" languagecode="1033" />
+        <Description description="" languagecode="1036" />
       </Descriptions>
       <attributes>
         <attribute PhysicalName="CreatedBy">
@@ -47,9 +50,11 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Created By" languagecode="1033" />
+            <displayname description="Created By" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the user who created the record." languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="CreatedOn">
@@ -87,9 +92,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Created On" languagecode="1033" />
+            <displayname description="Created On" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time when the record was created." languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="CreatedOnBehalfBy">
@@ -126,9 +133,11 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Created By (Delegate)" languagecode="1033" />
+            <displayname description="Created By (Delegate)" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the delegate user who created the record." languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="fdn_AppNotificationConfigId">
@@ -164,9 +173,11 @@
           <LookupTypes />
           <displaynames>
             <displayname description="App Notification Config" languagecode="1033" />
+            <displayname description="Configuration de la notification" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="fdn_ContentMessage">
@@ -204,9 +215,11 @@
           <Length>2000</Length>
           <displaynames>
             <displayname description="Content Message" languagecode="1033" />
+            <displayname description="Contenue du message" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="fdn_Language">
@@ -255,6 +268,7 @@
               <option value="794560001" ExternalValue="" IsHidden="0">
                 <labels>
                   <label description="English" languagecode="1033" />
+                  <label description="Anglais" languagecode="1036" />
                 </labels>
                 <Descriptions>
                   <Description description="" languagecode="1033" />
@@ -263,6 +277,7 @@
               <option value="794560002" ExternalValue="" IsHidden="0">
                 <labels>
                   <label description="French" languagecode="1033" />
+                  <label description="Français" languagecode="1036" />
                 </labels>
                 <Descriptions>
                   <Description description="" languagecode="1033" />
@@ -272,9 +287,11 @@
           </optionset>
           <displaynames>
             <displayname description="Language" languagecode="1033" />
+            <displayname description="Langue" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="fdn_LocalizedNotificationContentId">
@@ -349,9 +366,11 @@
           <Length>1700</Length>
           <displaynames>
             <displayname description="Name" languagecode="1033" />
+            <displayname description="Nom" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ImportSequenceNumber">
@@ -384,14 +403,16 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <Format></Format>
+          <Format>none</Format>
           <MinValue>-2147483648</MinValue>
           <MaxValue>2147483647</MaxValue>
           <displaynames>
             <displayname description="Import Sequence Number" languagecode="1033" />
+            <displayname description="Import Sequence Number" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Sequence number of the import that created this record." languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ModifiedBy">
@@ -428,9 +449,11 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Modified By" languagecode="1033" />
+            <displayname description="Modified By" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the user who modified the record." languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ModifiedOn">
@@ -468,9 +491,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Modified On" languagecode="1033" />
+            <displayname description="Modified On" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time when the record was modified." languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ModifiedOnBehalfBy">
@@ -507,9 +532,11 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Modified By (Delegate)" languagecode="1033" />
+            <displayname description="Modified By (Delegate)" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the delegate user who modified the record." languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OverriddenCreatedOn">
@@ -547,9 +574,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Record Created On" languagecode="1033" />
+            <displayname description="Record Created On" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time that the record was migrated." languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OwnerId">
@@ -589,9 +618,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Owner" languagecode="1033" />
+            <displayname description="Owner" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Owner Id" languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OwningBusinessUnit">
@@ -628,9 +659,11 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Owning Business Unit" languagecode="1033" />
+            <displayname description="Owning Business Unit" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier for the business unit that owns the record" languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OwningTeam">
@@ -755,20 +788,24 @@
               <state value="0" defaultstatus="1" invariantname="Active">
                 <labels>
                   <label description="Active" languagecode="1033" />
+                  <label description="Actif" languagecode="1036" />
                 </labels>
               </state>
               <state value="1" defaultstatus="2" invariantname="Inactive">
                 <labels>
                   <label description="Inactive" languagecode="1033" />
+                  <label description="Inactif" languagecode="1036" />
                 </labels>
               </state>
             </states>
           </optionset>
           <displaynames>
             <displayname description="Status" languagecode="1033" />
+            <displayname description="Status" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Status of the Localized Notification Content" languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="statuscode">
@@ -815,20 +852,24 @@
               <status value="1" state="0">
                 <labels>
                   <label description="Active" languagecode="1033" />
+                  <label description="Actif" languagecode="1036" />
                 </labels>
               </status>
               <status value="2" state="1">
                 <labels>
                   <label description="Inactive" languagecode="1033" />
+                  <label description="Inactif" languagecode="1036" />
                 </labels>
               </status>
             </statuses>
           </optionset>
           <displaynames>
             <displayname description="Status Reason" languagecode="1033" />
+            <displayname description="Status Reason" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Reason for the status of the Localized Notification Content" languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="TimeZoneRuleVersionNumber">

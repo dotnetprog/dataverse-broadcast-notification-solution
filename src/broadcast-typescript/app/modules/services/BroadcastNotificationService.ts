@@ -1,6 +1,6 @@
 import { entity, fdn_broadcastappnotification } from "@app/modules/domain";
 import * as utilities from "@app/modules/common/utility";
-type CachedValue<T> = {
+export type CachedValue<T> = {
     value: T;
     timestamp: number;
 };
@@ -80,5 +80,5 @@ function removeODataGarbages<T>(e:T,keys:string[]){
     }
     return e;
 }
-export const broadcastNotificationService:IBroadcastNotificationService = new BroadcastNotificationService(Xrm.WebApi,window.sessionStorage);
+
 

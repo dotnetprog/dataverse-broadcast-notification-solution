@@ -38,6 +38,7 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Owner Id" languagecode="1033" />
+        <Description description="" languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>

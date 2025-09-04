@@ -4,7 +4,7 @@ export interface INotificationStore {
     getCachedNotifications(appid:string): NotificationUI[];
     setCachedNotifications(appid:string,data:NotificationUI[]):void;
 }
-class StorageNotificationStore implements INotificationStore {
+export class StorageNotificationStore implements INotificationStore {
     _storageCacheKey:string = "broascast_{appid}";
     constructor(private _storage:Storage) {}
     getCachedNotifications(appid: string){
@@ -22,4 +22,3 @@ class StorageNotificationStore implements INotificationStore {
     }
     
 }
-export const notificationStore:INotificationStore = new StorageNotificationStore(window.localStorage);

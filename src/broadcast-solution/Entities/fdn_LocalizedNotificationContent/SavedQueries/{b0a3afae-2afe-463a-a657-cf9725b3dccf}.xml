@@ -31,6 +31,7 @@
     <IntroducedVersion>1.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="Active Localized Notification Contents" languagecode="1033" />
+      <LocalizedName description="Contenu des notifications localisées actifs" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

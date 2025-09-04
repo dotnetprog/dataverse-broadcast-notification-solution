@@ -23,6 +23,7 @@
                       <cell id="{58ca41aa-fb2e-4544-af80-010ba3d77ad2}" locklevel="0" colspan="1" rowspan="1" labelid="{932e3bfe-75cf-410c-8383-9df62531c495}">
                         <labels>
                           <label description="Name" languagecode="1033" />
+                          <label description="Nom" languagecode="1036" />
                         </labels>
                         <control id="fdn_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="fdn_name" disabled="true" />
                       </cell>
@@ -31,6 +32,7 @@
                       <cell id="{ed6d1aed-c7fb-448e-b2bf-8a8ea7a807ad}" locklevel="0" colspan="1" rowspan="1" labelid="{16717156-f14a-46c8-a200-3f6054f5ac60}">
                         <labels>
                           <label description="App Notification Config" languagecode="1033" />
+                          <label description="Configuration de la notification" languagecode="1036" />
                         </labels>
                         <control id="fdn_appnotificationconfigid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="fdn_appnotificationconfigid" disabled="true" />
                       </cell>
@@ -39,6 +41,7 @@
                       <cell id="{fbc9db9e-8ec1-4763-9141-d3766f9e6030}" locklevel="0" colspan="1" rowspan="1" labelid="{38792b03-759b-4418-9c80-0366011bed1f}">
                         <labels>
                           <label description="Language" languagecode="1033" />
+                          <label description="Langue" languagecode="1036" />
                         </labels>
                         <control id="fdn_language" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="fdn_language" disabled="false" />
                       </cell>
@@ -47,6 +50,7 @@
                       <cell id="{ac5b90a6-7ca0-40d2-a038-9281c5a850bf}" locklevel="0" colspan="1" rowspan="5" labelid="{91258330-a45b-444f-b2b5-659c49081760}">
                         <labels>
                           <label description="Content Message" languagecode="1033" />
+                          <label description="Contenue du message" languagecode="1036" />
                         </labels>
                         <control id="fdn_contentmessage" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="fdn_contentmessage" disabled="false" />
                       </cell>

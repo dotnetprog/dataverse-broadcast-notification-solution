@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
-
 export default defineConfig({
   build: {
     // Use Rollup output settings to force a single IIFE bundle and attach to the global `broadcast` name

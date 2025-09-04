@@ -24,6 +24,7 @@
                       <cell id="{0364f172-eab3-4c76-8a86-6d41c743a43c}">
                         <labels>
                           <label description="Name" languagecode="1033" />
+                          <label description="Nom" languagecode="1036" />
                         </labels>
                         <control id="fdn_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="fdn_name" />
                       </cell>
@@ -32,6 +33,7 @@
                       <cell id="{61df69d1-e522-485c-9b36-280f8dfe50bc}">
                         <labels>
                           <label description="Owner" languagecode="1033" />
+                          <label description="Owner" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25084.131" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25084.131" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25084.00131">
+<ImportExportXml version="9.2.25084.131" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25084.131" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25084.00132">
   <SolutionManifest>
     <UniqueName>BroadcastAppNotificationsSolution</UniqueName>
     <LocalizedNames>
@@ -83,7 +83,8 @@
       <RootComponent type="50" schemaName=":RibbonDiffXml" behavior="0" />
       <RootComponent type="61" schemaName="fdn_/images/alertoff.svg" behavior="0" />
       <RootComponent type="61" schemaName="fdn_/images/alerton.svg" behavior="0" />
-      <RootComponent type="61" schemaName="fdn_/images/broadcast.svg" behavior="0" />
+      <RootComponent type="61" schemaName="fdn_/images/icon_megaphone.png" behavior="0" />
+      <RootComponent type="61" schemaName="fdn_/images/megaphone.png" behavior="0" />
       <RootComponent type="61" schemaName="fdn_/scripts/broadcast.js" behavior="0" />
       <RootComponent type="62" schemaName="fdn_AppNotificationBroadcastsManagement" behavior="0" />
       <RootComponent type="66" schemaName="fdn_Broadcast.AppModulePicker" behavior="0" />
@@ -97,16 +98,17 @@
         <Dependent type="50" schemaName=":RibbonDiffXml" displayName=":RibbonDiffXml" parentSchemaName="ribboncustomization" parentDisplayName="Application Ribbons" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)">
-          <package appName="AppModule Web Resources Package" version="2.5">AppModuleWebResources (2.5)</package>
-        </Required>
-        <Dependent type="80" schemaName="fdn_AppNotificationBroadcastsManagement" displayName="AppNotification Broadcasts Management" />
-      </MissingDependency>
-      <MissingDependency>
         <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.15)" id.uniquename="AppChannel">
           <package appName="PowerAppsAppFramework Package" version="1.0.0.23">PowerAppsAppFramework_Anchor (1.0.0.23)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=fdn_AppNotificationBroadcastsManagement,settingdefinitionid.uniquename=AppChannel" id.parentappmoduleid.uniquename="fdn_AppNotificationBroadcastsManagement" id.settingdefinitionid.uniquename="AppChannel" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="enablecopilotautotriggersummarize" solution="msdyn_AppCopilotAppInfraSettings (9.2.2025062.250606027)" id.uniquename="enablecopilotautotriggersummarize">
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.1">PowerAppsAppCopilotApp_Anchor (9.2.0.1)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
+        </Required>
+        <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=fdn_AppNotificationBroadcastsManagement,settingdefinitionid.uniquename=enablecopilotautotriggersummarize" id.parentappmoduleid.uniquename="fdn_AppNotificationBroadcastsManagement" id.settingdefinitionid.uniquename="enablecopilotautotriggersummarize" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>

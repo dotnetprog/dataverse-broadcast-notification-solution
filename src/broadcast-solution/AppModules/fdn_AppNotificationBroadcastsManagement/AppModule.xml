@@ -2,7 +2,7 @@
 <AppModule>
   <UniqueName>fdn_AppNotificationBroadcastsManagement</UniqueName>
   <IntroducedVersion>1.0.0.0</IntroducedVersion>
-  <WebResourceId>953b9fac-1e5e-e611-80d6-00155ded156f</WebResourceId>
+  <WebResourceId>f97b0080-3087-f011-b4cc-7ced8d068474</WebResourceId>
   <OptimizedFor></OptimizedFor>
   <statecode>0</statecode>
   <statuscode>1</statuscode>
@@ -20,11 +20,16 @@
   </AppModuleRoleMaps>
   <LocalizedNames>
     <LocalizedName description="AppNotification Broadcasts Management" languagecode="1033" />
+    <LocalizedName description="AppNotification Broadcasts Management" languagecode="1036" />
   </LocalizedNames>
   <appsettings>
     <appsetting settingdefinitionid.uniquename="AppChannel">
       <iscustomizable>1</iscustomizable>
       <value>1</value>
+    </appsetting>
+    <appsetting settingdefinitionid.uniquename="enablecopilotautotriggersummarize">
+      <iscustomizable>1</iscustomizable>
+      <value>false</value>
     </appsetting>
   </appsettings>
 </AppModule>

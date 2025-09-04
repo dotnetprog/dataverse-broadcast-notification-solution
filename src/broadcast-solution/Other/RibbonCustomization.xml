@@ -3,12 +3,12 @@
   <CustomActions>
     <CustomAction Id="fdn.ApplicationRibbon.{!EntityLogicalName}.Buttons.Broadcast.CustomAction" Location="Mscrm.HomepageGrid.{!EntityLogicalName}.MainTab.Management.Controls._children" Sequence="5">
       <CommandUIDefinition>
-        <Button Command="fdn.ApplicationRibbon.Commands.Broadcast" Id="fdn.ApplicationRibbon.{!EntityLogicalName}.Buttons.Broadcast" LabelText="$LocLabels:fdn.ApplicationRibbon.Buttons.Broadcast.LabelText" Sequence="5" TemplateAlias="o1" />
+        <Button Command="fdn.ApplicationRibbon.Commands.EntityListBroadcast" Id="fdn.ApplicationRibbon.{!EntityLogicalName}.Buttons.Broadcast" LabelText="$LocLabels:fdn.ApplicationRibbon.Buttons.Broadcast.LabelText" Sequence="5" TemplateAlias="o1" />
       </CommandUIDefinition>
     </CustomAction>
     <CustomAction Id="fdn.ApplicationRibbon.{!EntityLogicalName}.FormButtons.Broadcast.CustomAction" Location="Mscrm.Form.{!EntityLogicalName}.MainTab.Save.Controls._children" Sequence="5">
       <CommandUIDefinition>
-        <Button Command="fdn.ApplicationRibbon.Commands.Broadcast" Id="fdn.ApplicationRibbon.{!EntityLogicalName}.FormButtons.Broadcast" LabelText="$LocLabels:fdn.ApplicationRibbon.FormButtons.Broadcast.LabelText" Sequence="5" TemplateAlias="o1" />
+        <Button Command="fdn.ApplicationRibbon.Commands.FormBroadCast" Id="fdn.ApplicationRibbon.{!EntityLogicalName}.FormButtons.Broadcast" LabelText="$LocLabels:fdn.ApplicationRibbon.FormButtons.Broadcast.LabelText" Sequence="5" TemplateAlias="o1" />
       </CommandUIDefinition>
     </CustomAction>
   </CustomActions>
@@ -16,13 +16,26 @@
     <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
   </Templates>
   <CommandDefinitions>
-    <CommandDefinition Id="fdn.ApplicationRibbon.Commands.Broadcast">
+    <CommandDefinition Id="fdn.ApplicationRibbon.Commands.EntityListBroadcast">
       <EnableRules>
-        <EnableRule Id="fdn.ApplicationRibbon.EnableRules.renderNotifications" />
+        <EnableRule Id="fdn.ApplicationRibbon.EnableRules.renderNotifications.EntityList" />
       </EnableRules>
       <DisplayRules />
       <Actions>
-        <JavaScriptFunction FunctionName="broadcast.ribbon.application.renderNotifications" Library="$webresource:fdn_/scripts/broadcast.js" />
+        <JavaScriptFunction FunctionName="broadcast.ribbon.application.renderNotifications" Library="$webresource:fdn_/scripts/broadcast.js">
+          <StringParameter Value="entitylist" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="fdn.ApplicationRibbon.Commands.FormBroadCast">
+      <EnableRules>
+        <EnableRule Id="fdn.ApplicationRibbon.EnableRules.renderNotifications.Form" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="broadcast.ribbon.application.renderNotifications" Library="$webresource:fdn_/scripts/broadcast.js">
+          <StringParameter Value="entityrecord" />
+        </JavaScriptFunction>
       </Actions>
     </CommandDefinition>
   </CommandDefinitions>
@@ -30,8 +43,15 @@
     <TabDisplayRules />
     <DisplayRules />
     <EnableRules>
-      <EnableRule Id="fdn.ApplicationRibbon.EnableRules.renderNotifications">
-        <CustomRule FunctionName="broadcast.ribbon.application.renderNotifications" Library="$webresource:fdn_/scripts/broadcast.js" />
+      <EnableRule Id="fdn.ApplicationRibbon.EnableRules.renderNotifications.EntityList">
+        <CustomRule FunctionName="broadcast.ribbon.application.renderNotifications" Library="$webresource:fdn_/scripts/broadcast.js">
+          <StringParameter Value="entitylist" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="fdn.ApplicationRibbon.EnableRules.renderNotifications.Form">
+        <CustomRule FunctionName="broadcast.ribbon.application.renderNotifications" Library="$webresource:fdn_/scripts/broadcast.js">
+          <StringParameter Value="entityrecord" />
+        </CustomRule>
       </EnableRule>
     </EnableRules>
   </RuleDefinitions>

@@ -43,6 +43,7 @@
                       <cell id="{30dc498c-80d9-4928-9ed8-1a996281002b}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
                           <label description="Application Host" languagecode="1033" />
+                          <label description="Application ciblé" languagecode="1036" />
                         </labels>
                         <control id="fdn_appmoduleid" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="fdn_appmoduleid" disabled="false" uniqueid="{eee49d4d-f454-4537-ad67-5a790912573a}" />
                       </cell>
@@ -74,7 +75,7 @@
                       <cell id="{d2dc2e87-91d0-46d1-8902-9e842663ac5a}" colspan="2" rowspan="1">
                         <labels>
                           <label description="Default Message" languagecode="1033" />
-                          <label description="Contenue du message" languagecode="1036" />
+                          <label description="Contenue du message par défaut" languagecode="1036" />
                         </labels>
                         <control id="fdn_message" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="fdn_message" />
                       </cell>
@@ -83,6 +84,7 @@
                       <cell locklevel="0" id="{218e1850-5d65-4cda-9f9a-6e6bae6b2472}" rowspan="4" colspan="2" auto="false">
                         <labels>
                           <label description="Localized Notification Message" languagecode="1033" />
+                          <label description="Messages localisés de la notification" languagecode="1036" />
                         </labels>
                         <control indicationOfSubgrid="true" id="Subgrid_new_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
                           <parameters>

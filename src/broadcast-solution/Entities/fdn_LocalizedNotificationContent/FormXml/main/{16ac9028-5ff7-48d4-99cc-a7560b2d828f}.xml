@@ -25,6 +25,7 @@
                       <cell id="{d6d5fd0a-3955-4441-9856-8302f3dfb5f2}">
                         <labels>
                           <label description="Name" languagecode="1033" />
+                          <label description="Nom" languagecode="1036" />
                         </labels>
                         <control id="fdn_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="fdn_name" disabled="true" />
                       </cell>
@@ -33,6 +34,7 @@
                       <cell id="{db619370-173f-4753-86e5-80f5eec937dd}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
                           <label description="App Notification Config" languagecode="1033" />
+                          <label description="Configuration de la notification" languagecode="1036" />
                         </labels>
                         <control id="fdn_appnotificationconfigid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="fdn_appnotificationconfigid" disabled="true" />
                       </cell>
@@ -41,6 +43,7 @@
                       <cell id="{adb86778-c23e-497e-86b9-34785d04b325}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
                           <label description="Language" languagecode="1033" />
+                          <label description="Langue" languagecode="1036" />
                         </labels>
                         <control id="fdn_language" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="fdn_language" disabled="false" />
                       </cell>
@@ -49,6 +52,7 @@
                       <cell id="{56e845fc-22b4-4657-a580-c3197baef916}" locklevel="0" colspan="1" rowspan="5" auto="false">
                         <labels>
                           <label description="Content Message" languagecode="1033" />
+                          <label description="Contenue du message" languagecode="1036" />
                         </labels>
                         <control id="fdn_contentmessage" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="fdn_contentmessage" disabled="false" />
                       </cell>
@@ -85,6 +89,7 @@
             <cell id="{6b5059b3-7210-4b3f-837d-55ac206a4551}" colspan="1" rowspan="1">
               <labels>
                 <label description="Owner" languagecode="1033" />
+                <label description="Owner" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
             </cell>

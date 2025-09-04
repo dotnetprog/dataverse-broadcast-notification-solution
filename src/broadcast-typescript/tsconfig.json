@@ -13,8 +13,10 @@
     "experimentalDecorators": true,
     "outDir": "dist",
     "paths": {
-      "@app/*": ["./app/*"] 
-    }
+      "@app/*": ["./app/*"],
+      "@tests/*":["./tests/*"]
+    },
+    "types": ["vitest/globals", "node","xrm"]
   },
-  "include": ["app"]
+  "include": ["app", "tests/**/*", "tests"]
 }

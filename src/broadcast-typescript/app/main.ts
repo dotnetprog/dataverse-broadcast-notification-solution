@@ -21,3 +21,4 @@ if (typeof window !== 'undefined') {
 
 	(window as any).broadcast = (window as any).broadcast ?? AppModule;
 }
+export default AppModule;

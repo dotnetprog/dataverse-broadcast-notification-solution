@@ -3,14 +3,20 @@ import { fdn_broadcastappnotification, fdn_level, NotificationUI } from "@app/mo
 import * as utilities from '@app/modules/common/utility';
 export default class {
     //broadcast.ribbon.application.renderNotifications
-    async renderNotifications(){
+    async renderNotifications(targetpage?:string){
         try
         {
+            const pageType = Xrm.Utility.getPageContext()?.input?.pageType;
+
+            if(!pageType || pageType !== targetpage){
+                return false;
+            }
+
             const userLang = utilities.getUserLangFromGlobalContext();
             console.log("broadcast renderNotifications");
             const appProps = await Xrm.Utility.getGlobalContext().getCurrentAppProperties();
             if(!appProps || !appProps.appId){
-                return;
+                return false;
             }
             const cachedNotifications = notificationStore.getCachedNotifications(appProps.appId);
             const clearTasks = cachedNotifications.map(n=>Xrm.App.clearGlobalNotification(n.uid));

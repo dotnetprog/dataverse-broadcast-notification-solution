@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name LocalizedName="App Notification Broadcast" OriginalName="Broadcast App Notification">fdn_BroadcastAppNotification</Name>
+  <Name LocalizedName="Diffusion d'une notification d'application" OriginalName="Broadcast App Notification">fdn_BroadcastAppNotification</Name>
   <EntityInfo>
     <entity Name="fdn_BroadcastAppNotification">
       <LocalizedNames>
-        <LocalizedName description="App Notification Broadcast" languagecode="1033" />
+        <LocalizedName description="Diffusion d'une notification d'application" languagecode="1033" />
         <LocalizedName description="Diffusion d'une notification d'application" languagecode="1036" />
       </LocalizedNames>
       <LocalizedCollectionNames>
-        <LocalizedCollectionName description="App Notifications Broadcast" languagecode="1033" />
+        <LocalizedCollectionName description="Diffusion des notifications d'applications" languagecode="1033" />
         <LocalizedCollectionName description="Diffusion des notifications d'applications" languagecode="1036" />
       </LocalizedCollectionNames>
       <Descriptions>
@@ -174,10 +174,12 @@
           <MaxLength>100</MaxLength>
           <Length>200</Length>
           <displaynames>
-            <displayname description="Application Host" languagecode="1033" />
+            <displayname description="Targeted application" languagecode="1033" />
+            <displayname description="Application ciblé" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
+            <Description description="" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="fdn_BroadcastAppNotificationId">
@@ -921,7 +923,7 @@
               <status value="1" state="0">
                 <labels>
                   <label description="Draft" languagecode="1033" />
-                  <label description="Draft" languagecode="1036" />
+                  <label description="Brouillon" languagecode="1036" />
                 </labels>
               </status>
               <status value="2" state="1">
@@ -1079,7 +1081,7 @@
       <CanCreateViews>1</CanCreateViews>
       <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
       <CanEnableSyncToExternalSearchIndex>1</CanEnableSyncToExternalSearchIndex>
-      <IconVectorName>fdn_/images/broadcast.svg</IconVectorName>
+      <IconVectorName>fdn_/images/icon_megaphone.png</IconVectorName>
       <EnforceStateTransitions>0</EnforceStateTransitions>
       <CanChangeHierarchicalRelationship>1</CanChangeHierarchicalRelationship>
       <EntityHelpUrlEnabled>0</EntityHelpUrlEnabled>
