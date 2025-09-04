@@ -6,7 +6,7 @@
   "scripts": {
     "build": "vite build",
     "test": "vitest",
-    "test:ci": "vitest run --coverage "
+    "test:ci": "vitest run --coverage --coverage.thresholds.lines=80"
   },
   "devDependencies": {
     "@faker-js/faker": "^10.0.0",
