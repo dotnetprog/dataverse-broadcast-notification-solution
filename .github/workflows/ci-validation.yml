@@ -34,7 +34,7 @@ jobs:
                 path: ${{ env.broadcastjsWorkingDirectory }}/*-junit.xml    # Path to test results
                 reporter: jest-junit       # Format of test results
             - name: Upload coverage
-              uses: neofinancial/coverage-upload-action@v2.0.0
+              uses: neofinancial/coverage-upload-action
               if: ${{ (success() || failure()) && (github.event_name == 'pull_request')   }} 
               with:
                 coverageData: ${{ env.broadcastjsWorkingDirectory }}/coverage/lcov.info
