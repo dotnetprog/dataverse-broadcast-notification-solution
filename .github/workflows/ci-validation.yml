@@ -33,13 +33,7 @@ jobs:
                 name: JEST Tests            # Name of the check run which will be created
                 path: ${{ env.broadcastjsWorkingDirectory }}/*-junit.xml    # Path to test results
                 reporter: jest-junit       # Format of test results
-            - name: Upload coverage
-              uses: neofinancial/coverage-upload-action@v1.0.2
-              if: ${{ (success() || failure()) && (github.event_name == 'pull_request')   }} 
-              with:
-                coverageData: ${{ env.broadcastjsWorkingDirectory }}/coverage/lcov.info
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+           
             - name: Create destination folder
               run: mkdir -p ${{env.artifactlocation}}
             - name: Copy file outputjs into staging directory
