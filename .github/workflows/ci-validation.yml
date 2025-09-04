@@ -48,7 +48,7 @@ jobs:
               with:
                  fail_ci_if_error: true # optional (default = false)
                  disable_search: true
-                 files: ./${{ env.broadcastjsWorkingDirectory }}/coverage/icov.info # optional
+                 files: ./${{ env.broadcastjsWorkingDirectory }}/coverage/lcov.info # optional
                  flags: broadcast # optional
                  name: broadcastjs-coverage # optional
                  token: ${{ secrets.CODECOV_TOKEN }}
