@@ -25,6 +25,19 @@ jobs:
             - name: Run tests
               run: npm run test:ci
               working-directory: ${{ env.broadcastjsWorkingDirectory }}
+            - name: Publish Test Report
+              uses: phoenix-actions/test-reporting@v8
+              id: test-report               # Set ID reference for step
+              if: ${{ (success() || failure()) && (github.event_name == 'pull_request')   }}     # run this step even if previous step failed
+              with:
+                name: JEST Tests            # Name of the check run which will be created
+                path: ${{ env.broadcastjsWorkingDirectory }}/*-junit.xml    # Path to test results
+                reporter: jest-junit       # Format of test results
+            - name: Add Coverage PR Comment
+              uses: marocchino/sticky-pull-request-comment@v2
+              if: github.event_name == 'pull_request'
+              with:
+                 path: ${{ env.broadcastjsWorkingDirectory }}/test-coverage.md
             - name: Create destination folder
               run: mkdir -p ${{env.artifactlocation}}
             - name: Copy file outputjs into staging directory
