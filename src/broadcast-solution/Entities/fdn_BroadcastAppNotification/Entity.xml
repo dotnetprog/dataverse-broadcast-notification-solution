@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name LocalizedName="Diffusion d'une notification d'application" OriginalName="Broadcast App Notification">fdn_BroadcastAppNotification</Name>
+  <Name LocalizedName="Global App Notification" OriginalName="Broadcast App Notification">fdn_BroadcastAppNotification</Name>
   <EntityInfo>
     <entity Name="fdn_BroadcastAppNotification">
       <LocalizedNames>
-        <LocalizedName description="Diffusion d'une notification d'application" languagecode="1033" />
-        <LocalizedName description="Diffusion d'une notification d'application" languagecode="1036" />
+        <LocalizedName description="Global App Notification" languagecode="1033" />
+        <LocalizedName description="Notification globale des applications" languagecode="1036" />
       </LocalizedNames>
       <LocalizedCollectionNames>
-        <LocalizedCollectionName description="Diffusion des notifications d'applications" languagecode="1033" />
-        <LocalizedCollectionName description="Diffusion des notifications d'applications" languagecode="1036" />
+        <LocalizedCollectionName description="Global App Notifications" languagecode="1033" />
+        <LocalizedCollectionName description="Notifications globales des applications" languagecode="1036" />
       </LocalizedCollectionNames>
       <Descriptions>
         <Description description="" languagecode="1033" />

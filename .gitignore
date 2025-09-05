@@ -139,3 +139,4 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 src/broadcast-pcf/appmodulepicker/push.bat
 export-solution.ps1
+/.vs
