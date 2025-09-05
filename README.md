@@ -1,3 +1,5 @@
+[![CI - Validation](https://github.com/dotnetprog/dataverse-broadcast-notification-solution/actions/workflows/ci-validation.yml/badge.svg)](https://github.com/dotnetprog/dataverse-broadcast-notification-solution/actions/workflows/ci-validation.yml)
+[![codecov](https://codecov.io/gh/dotnetprog/dataverse-broadcast-notification-solution/graph/badge.svg?token=AWMUQR2QAT)](https://codecov.io/gh/dotnetprog/dataverse-broadcast-notification-solution)
 # 🔔 dataverse-broadcast-notification-solution 📢
 Open source Dataverse Solution to display Global Notifications per Model-Driven Apps
 Helpful to notify your dataverse end users.
