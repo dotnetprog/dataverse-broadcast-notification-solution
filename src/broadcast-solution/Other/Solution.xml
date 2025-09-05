@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25084.131" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25084.131" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25084.00132">
+<ImportExportXml version="9.2.25084.131" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25084.131" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25084.00140">
   <SolutionManifest>
     <UniqueName>BroadcastAppNotificationsSolution</UniqueName>
     <LocalizedNames>
@@ -80,6 +80,8 @@
     <RootComponents>
       <RootComponent type="1" schemaName="fdn_broadcastappnotification" behavior="0" />
       <RootComponent type="1" schemaName="fdn_localizednotificationcontent" behavior="0" />
+      <RootComponent type="20" id="{5d47fe9b-518a-f011-b4cc-6045bdccf7ac}" behavior="0" />
+      <RootComponent type="20" id="{c691777d-508a-f011-b4cc-6045bdccf7ac}" behavior="0" />
       <RootComponent type="50" schemaName=":RibbonDiffXml" behavior="0" />
       <RootComponent type="61" schemaName="fdn_/images/alertoff.svg" behavior="0" />
       <RootComponent type="61" schemaName="fdn_/images/alerton.svg" behavior="0" />
