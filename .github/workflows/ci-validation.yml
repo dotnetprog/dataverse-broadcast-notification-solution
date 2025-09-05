@@ -7,11 +7,28 @@ permissions:
 on:
   pull_request:
     branches: [ "main" ]
+  push:
+    branches:
+      - main
 env:
   pcfWorkkingDirectory: 'src/broadcast-pcf/appmodulepicker'
   broadcastjsWorkingDirectory: 'src/broadcast-typescript'
+  solutionDirectory: 'src/broadcast-solution'
   artifactlocation: '${{ github.workspace }}/dist'
 jobs:
+    ValidationSolutionPack:
+        if: ${{ github.event_name == 'pull_request'   }} 
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Install Power Platform Tools
+              uses: microsoft/powerplatform-actions/actions-install@v1
+            - name: Pack solution
+              uses: microsoft/powerplatform-actions/pack-solution@v1
+              with:
+                solution-folder: ${{ env.solutionDirectory}}
+                solution-file: artifactlocation/broadcast_solution.zip
+                solution-type: Unmanaged
     buildBroadCastJs:
         runs-on: ubuntu-latest
         steps:
@@ -58,6 +75,7 @@ jobs:
             - name: Copy file outputjs into staging directory
               run: cp ${{ env.broadcastjsWorkingDirectory }}/dist/broadcast.js ${{env.artifactlocation}}
             - name: Upload broadcastjs artifact
+              if: ${{ success() && (github.event_name == 'push')   }} 
               uses: actions/upload-artifact@v4
               with:
                  name: broadcastjs
@@ -77,6 +95,7 @@ jobs:
             - name: Copy file output pcf bundle into staging directory
               run: cp ${{ env.pcfWorkkingDirectory }}/out/controls/AppModulePicker/* ${{env.artifactlocation}}
             - name: Upload AppModulePicker artifact
+              if: ${{ success() && (github.event_name == 'push')   }} 
               uses: actions/upload-artifact@v4
               with:
                  name: AppModulePicker
