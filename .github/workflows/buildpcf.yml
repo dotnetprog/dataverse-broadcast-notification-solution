@@ -32,26 +32,17 @@ jobs:
        run: npm run build
        working-directory: ${{ inputs.pcfdirectory  }}
      - name: Create destination folder
-       env:
-          GH_TOKEN: ${{ github.token }}
-          GITHUB_TOKEN: ${{ github.token }}
        if: ${{ success() && inputs.publishArtifact   }} 
-       run: mkdir -p ${{ github.workspace }}/dist
+       run: mkdir -p ${{ github.workspace }}${{inputs.artifactlocation}}
      - name: Copy file output pcf bundle into staging directory
-       env:
-          GH_TOKEN: ${{ github.token }}
-          GITHUB_TOKEN: ${{ github.token }}
        if: ${{ success() && inputs.publishArtifact   }}
-       run: cp ${{ inputs.pcfdirectory  }}/out/controls/${{ inputs.componentName }}/* ${{inputs.artifactlocation}}
+       run: cp ${{ inputs.pcfdirectory  }}/out/controls/${{ inputs.componentName }}/* ${{ github.workspace }}${{inputs.artifactlocation}}
      - name: Upload ${{ inputs.componentName }} artifact
-       env:
-          GH_TOKEN: ${{ github.token }}
-          GITHUB_TOKEN: ${{ github.token }}
        if: ${{ success() && inputs.publishArtifact   }} 
        uses: actions/upload-artifact@v4
        with:
          name: ${{ inputs.componentName }}
-         path: ${{inputs.artifactlocation}}
+         path: ${{ github.workspace }}${{inputs.artifactlocation}}
  
         
 
