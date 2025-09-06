@@ -1,7 +1,7 @@
 name: Create Release on Tag
 run-name: BuildTag ${{ github.ref_name }}
 permissions:
-  contents: read
+  contents: write
   issues: read
   checks: write
 on:
