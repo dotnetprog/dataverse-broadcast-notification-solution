@@ -120,7 +120,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: ./BroadcastSolution_v${{ steps.gitversion.outputs.majorMinorPatch }}_Managed.zip
+          asset_path: ./BroadcastSolution_v${{ steps.gitversion.outputs.majorMinorPatch }}_managed.zip
           asset_name: BroadcastSolution_v${{ steps.gitversion.outputs.majorMinorPatch }}_Managed.zip
           asset_content_type: application/zip
      
