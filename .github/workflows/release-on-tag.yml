@@ -1,5 +1,5 @@
 name: Create Release on Tag
-
+run-name: BuildTag ${{ github.ref }}
 on:
   push:
     # Sequence of patterns matched against refs/tags
@@ -13,6 +13,113 @@ env:
   solutionDirectory: 'src/broadcast-solution'
   artifactlocation: '${{ github.workspace }}/dist'
 jobs:
+  buildBroadCastJs:
+    uses: ./.github/workflows/buildjs.yml
+    with:
+      projectdirectory: 'src/broadcast-typescript'
+      componentName: broadcastjs
+      publishArtifact: true
+      testCommand: 'test:ci'
+      publishCodeCov: false
+      artifactlocation: '${{ github.workspace }}/dist'
+    secrets:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          
+  
+            
+  buildAppModulePickerPCF:
+    uses: ./.github/workflows/buildpcf.yml
+    with:
+      pcfdirectory: 'src/broadcast-pcf/appmodulepicker'
+      publishArtifact: true
+      componentName: AppModulePicker
+      artifactlocation: '${{ github.workspace }}/dist'
+  release:
+    name: Create Release from tag
+    needs: [ buildAppModulePickerPCF, buildBroadCastJs]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install Power Platform Tools
+        uses: microsoft/powerplatform-actions/actions-install@v1
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v4.1.0
+        with:
+          versionSpec: '6.3.x'
+      - name: Determine Version
+        id: gitversion # step id used as reference for output values
+        uses: gittools/actions/gitversion/execute@v4.1.0
 
+      - name: Download broadcastjs artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: broadcastjs
+          path: '${{ github.workspace }}/broadcastjs'
+      - name: Download AppModulePicker artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: AppModulePicker
+          path: '${{ github.workspace }}/AppModulePicker'
+      - name: Rename broadcastjs/bundle.js into bbundle.js
+        run: bundle.js bbundle.js
+        working-directory: ${{ github.workspace }}/AppModulePicker
+      - name: Update PCF control version with ${{ github.ref }}
+        uses: Mudlet/xmlstarlet-action@v1.2
+        with:
+          args: >-
+            ed -L --update "/manifest/control/@version"
+            -v "${{ steps.gitversion.outputs.majorMinorPatch }}"
+            ${{ github.workspace }}/AppModulePicker/ControlManifest.xml
+      - name: Update Solution.xml Version with semver
+        uses: Mudlet/xmlstarlet-action@v1.2
+        with:
+          args: >-
+            ed -L --update "/ImportExportXml/SolutionManifest/Version"
+            -v "${{ steps.gitversion.outputs.assemblySemVer }}"
+            ${{ github.workspace }}/src/broadcast-solution/Other/Solution.xml
+      - name: delete bundle.js from the solution directory
+        run: |
+          rm src/broadcast-solution/Controls/fdn_Broadcast.AppModulePicker/bundle.js
+      - name: Pack solution
+        uses: microsoft/powerplatform-actions/pack-solution@v1
+        with:
+          solution-folder: src/broadcast-solution
+          map-file: src/solution-mapping-pack.xml
+          solution-file: BroadcastSolution_v${{ steps.gitversion.outputs.majorMinorPatch }}.zip
+          solution-type: Both
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload Unmanaged Release Solution
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: ./BroadcastSolution_v${{ steps.gitversion.outputs.majorMinorPatch }}.zip
+          asset_name: BroadcastSolution_v${{ steps.gitversion.outputs.majorMinorPatch }}.zip
+          asset_content_type: application/zip
+      - name: Upload Managed Release Solution
+        id: upload-release-managed-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: ./BroadcastSolution_v${{ steps.gitversion.outputs.majorMinorPatch }}_Managed.zip
+          asset_name: BroadcastSolution_v${{ steps.gitversion.outputs.majorMinorPatch }}_Managed.zip
+          asset_content_type: application/zip
+     
+    
 
  
