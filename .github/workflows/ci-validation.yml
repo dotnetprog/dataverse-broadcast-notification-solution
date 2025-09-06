@@ -30,7 +30,7 @@ jobs:
                 solution-file: artifactlocation/broadcast_solution.zip
                 solution-type: Unmanaged
     buildBroadCastJs:
-        uses: ./.github/workflows/templates/buildjs.yml
+        uses: ./.github/workflows/buildjs.yml
         with:
           projectdirectory: 'src/broadcast-typescript'
           componentName: broadcastjs
@@ -42,7 +42,7 @@ jobs:
   
             
     buildAppModulePickerPCF:
-        uses: ./.github/workflows/templates/buildpcf.yml
+        uses: ./.github/workflows/buildpcf.yml
         with:
           pcfdirectory: 'src/broadcast-pcf/appmodulepicker'
           publishArtifact: false
