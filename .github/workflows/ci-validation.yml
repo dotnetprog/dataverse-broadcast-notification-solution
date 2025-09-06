@@ -30,26 +30,20 @@ jobs:
                 solution-file: artifactlocation/broadcast_solution.zip
                 solution-type: Unmanaged
     buildBroadCastJs:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v4
-        - uses: ./github/workflows/templates/buildjs.yml
-          with:
-              projectdirectory: ${{ env.broadcastjsWorkingDirectory }}
-              componentName: broadcastjs
-              publishArtifact: false
-              testCommand: 'test:ci'
-              publishCodeCov: ${{github.event_name == 'pull_request'}}
-              artifactlocation: ${{env.artifactlocation}}
+        uses: ./github/workflows/templates/buildjs.yml
+        with:
+          projectdirectory: ${{ env.broadcastjsWorkingDirectory }}
+          componentName: broadcastjs
+          publishArtifact: false
+          testCommand: 'test:ci'
+          publishCodeCov: ${{github.event_name == 'pull_request'}}
+          artifactlocation: ${{env.artifactlocation}}
           
   
             
     buildAppModulePickerPCF:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - uses: ./.github/workflows/templates/buildpcf.yml
-              with:
-                pcfdirectory: ${{ env.pcfWorkkingDirectory }}
-                publishArtifact: false
-                componentName: AppModulePicker
+        uses: ./.github/workflows/templates/buildpcf.yml
+        with:
+          pcfdirectory: ${{ env.pcfWorkkingDirectory }}
+          publishArtifact: false
+          componentName: AppModulePicker
