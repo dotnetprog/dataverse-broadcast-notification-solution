@@ -32,71 +32,24 @@ jobs:
     buildBroadCastJs:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-            - name: Install dependencies
-              run: npm ci
-              working-directory: ${{ env.broadcastjsWorkingDirectory }}
-            - name: build
-              run: npm run build
-              working-directory: ${{ env.broadcastjsWorkingDirectory }}
-            - name: Run tests
-              run: npm run test:ci
-              working-directory: ${{ env.broadcastjsWorkingDirectory }}
-            - name: Publish Test Report
-              uses: phoenix-actions/test-reporting@v8
-              id: test-report               # Set ID reference for step
-              if: ${{ (success() || failure()) && (github.event_name == 'pull_request')   }}     # run this step even if previous step failed
-              with:
-                name: JEST Tests            # Name of the check run which will be created
-                path: ${{ env.broadcastjsWorkingDirectory }}/*-junit.xml    # Path to test results
-                reporter: jest-junit       # Format of test results
-            - name: Publish Tests Results to CodeCov
-              uses: codecov/test-results-action@v1
-              with:
-                 fail_ci_if_error: true # optional (default = false)
-                 disable_search: true
-                 files: ./${{ env.broadcastjsWorkingDirectory }}/vitest-junit.xml # optional
-                 flags: broadcast # optional
-                 name: broadcastjs-tests # optional
-                 token: ${{ secrets.CODECOV_TOKEN }} # required
-                 verbose: true # optional (default = false)
-            - name: Publish Coverage to CodeCov
-              uses: codecov/codecov-action@v5
-              with:
-                 fail_ci_if_error: true # optional (default = false)
-                 disable_search: true
-                 files: ./${{ env.broadcastjsWorkingDirectory }}/coverage/lcov.info # optional
-                 flags: broadcast # optional
-                 name: broadcastjs-coverage # optional
-                 token: ${{ secrets.CODECOV_TOKEN }}
-                 verbose: true # optional (default = false)
-            - name: Create destination folder
-              run: mkdir -p ${{env.artifactlocation}}
-            - name: Copy file outputjs into staging directory
-              run: cp ${{ env.broadcastjsWorkingDirectory }}/dist/broadcast.js ${{env.artifactlocation}}
-            - name: Upload broadcastjs artifact
-              if: ${{ success() && (github.event_name == 'push')   }} 
-              uses: actions/upload-artifact@v4
-              with:
-                 name: broadcastjs
-                 path: ${{env.artifactlocation}}
+        - uses: actions/checkout@v4
+        - uses: ./github/workflows/templates/buildjs.yml
+          with:
+              projectdirectory: ${{ env.broadcastjsWorkingDirectory }}
+              componentName: broadcastjs
+              publishArtifact: false
+              testCommand: 'test:ci'
+              publishCodeCov: ${{github.event_name == 'pull_request'}}
+              artifactlocation: ${{env.artifactlocation}}
+          secrets:
+              CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+            
     buildAppModulePickerPCF:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - name: Install dependencies
-              run: npm ci
-              working-directory: ${{ env.pcfWorkkingDirectory }}
-            - name: build
-              run: npm run build
-              working-directory: ${{ env.pcfWorkkingDirectory }}
-            - name: Create destination folder
-              run: mkdir -p ${{env.artifactlocation}}
-            - name: Copy file output pcf bundle into staging directory
-              run: cp ${{ env.pcfWorkkingDirectory }}/out/controls/AppModulePicker/* ${{env.artifactlocation}}
-            - name: Upload AppModulePicker artifact
-              if: ${{ success() && (github.event_name == 'push')   }} 
-              uses: actions/upload-artifact@v4
+            - uses: ./.github/workflows/templates/buildpcf.yml
               with:
-                 name: AppModulePicker
-                 path: ${{env.artifactlocation}}
+                pcfdirectory: ${{ env.pcfWorkkingDirectory }}
+                publishArtifact: false
+                componentName: AppModulePicker
