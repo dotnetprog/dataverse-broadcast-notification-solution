@@ -1,0 +1,51 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: buildPCF
+on:
+   workflow_call:
+    inputs:
+      pcfdirectory:
+        required: true
+        type: string
+      publishArtifact:
+        required: true
+        type: boolean
+      componentName:
+        required: true
+        type: string
+      artifactlocation:
+        required: false
+        type: string   
+jobs:
+  buildPCF:
+    name: Build ${{ inputs.componentName }}
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v4
+     - name: Install dependencies
+       run: npm ci
+       working-directory: ${{ inputs.pcfdirectory }}
+     - name: build
+       run: npm run build
+       working-directory: ${{ inputs.pcfdirectory  }}
+     - name: Create destination folder
+       if: ${{ success() && inputs.publishArtifact   }} 
+       run: mkdir -p ${{inputs.artifactlocation}}
+     - name: Copy file output pcf bundle into staging directory
+       if: ${{ success() && inputs.publishArtifact   }}
+       run: cp ${{ inputs.pcfdirectory  }}/out/controls/${{ inputs.componentName }}/* ${{inputs.artifactlocation}}
+     - name: Upload ${{ inputs.componentName }} artifact
+       if: ${{ success() && inputs.publishArtifact   }} 
+       uses: actions/upload-artifact@v4
+       with:
+         name: ${{ inputs.componentName }}
+         path: ${{inputs.artifactlocation}}
+ 
+        
+
+
+
+  
+    
+  

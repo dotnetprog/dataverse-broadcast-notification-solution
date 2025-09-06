@@ -140,3 +140,8 @@ vite.config.ts.timestamp-*
 src/broadcast-pcf/appmodulepicker/push.bat
 export-solution.ps1
 /.vs
+pack-solution.ps1
+BroadcastSolution_managed.zip
+.gitignore
+BroadcastSolution.zip
+src/solution-mapping-pack.local.xml

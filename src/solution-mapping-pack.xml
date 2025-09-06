@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<Mapping>  
+    <!-- Match specific named files to an alternate folder -->  
+    <FileToFile map="broadcast.js" to="../../broadcastjs/broadcast.js" />  
+    <!-- you have to rename broadcast-pcf/appmodulepicker/out/controls/AppModulePicker/bundle.js with bbundle.js -->   
+    <!-- and delete Controls/fdn_Broadcast.AppModulePicker/bundle.js for it to work properly -->
+    <FileToPath map="Controls/fdn_Broadcast.AppModulePicker/*.*" to="../../AppModulePicker/**" />   
+</Mapping>

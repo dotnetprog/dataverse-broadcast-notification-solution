@@ -1,0 +1,92 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: buildjs
+on:
+   workflow_call:
+    inputs:
+      projectdirectory:
+        required: true
+        type: string
+      componentName:
+        required: true
+        type: string
+      publishArtifact:
+        required: true
+        type: boolean
+      testCommand:
+        required: true
+        type: string
+      publishCodeCov:
+        required: true
+        type: boolean
+      artifactlocation:
+        required: false
+        type: string 
+    secrets:
+      CODECOV_TOKEN:
+       required: false 
+jobs:
+  buildJS:
+    name: Build ${{ inputs.componentName }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ${{ inputs.projectdirectory }}
+      - name: build
+        run: npm run build
+        working-directory: ${{ inputs.projectdirectory }}
+      - name: Run tests
+        run: npm run ${{ inputs.testCommand }}
+        working-directory: ${{ inputs.projectdirectory }}
+      - name: Publish Test Report
+        uses: phoenix-actions/test-reporting@v8
+        id: test-report               # Set ID reference for step
+        if: ${{ (success() || failure()) && inputs.publishCodeCov   }}     # run this step even if previous step failed
+        with:
+          name: JEST Tests            # Name of the check run which will be created
+          path: ${{ inputs.projectdirectory }}/*-junit.xml    # Path to test results
+          reporter: jest-junit       # Format of test results
+      - name: Publish Tests Results to CodeCov
+        uses: codecov/test-results-action@v1
+        if: ${{ (success() || failure()) && inputs.publishCodeCov   }}
+        with:
+          fail_ci_if_error: true # optional (default = false)
+          disable_search: true
+          files: ./${{ inputs.projectdirectory }}/vitest-junit.xml # optional
+          flags: broadcast # optional
+          name: ${{ inputs.componentName }}-tests # optional
+          token: ${{ secrets.CODECOV_TOKEN }} # required
+          verbose: true # optional (default = false)
+      - name: Publish Coverage to CodeCov
+        uses: codecov/codecov-action@v5
+        if: ${{ (success() || failure()) && inputs.publishCodeCov   }}
+        with:
+          fail_ci_if_error: true # optional (default = false)
+          disable_search: true
+          files: ./${{ inputs.projectdirectory }}/coverage/lcov.info # optional
+          flags: broadcast # optional
+          name: ${{ inputs.componentName }}-coverage # optional
+          token: ${{ secrets.CODECOV_TOKEN }}
+          verbose: true # optional (default = false)
+      - name: Create destination folder
+        if: ${{ success() && inputs.publishArtifact   }}
+        run: mkdir -p ${{inputs.artifactlocation}}
+      - name: Copy file outputjs into staging directory
+        if: ${{ success() && inputs.publishArtifact   }}
+        run: cp ${{ inputs.projectdirectory }}/dist/broadcast.js ${{inputs.artifactlocation}}
+      - name: Upload ${{ inputs.componentName }} artifact
+        if: ${{ success() && inputs.publishArtifact   }} 
+        uses: actions/upload-artifact@v4
+        with:
+           name: ${{ inputs.componentName }}
+           path: ${{inputs.artifactlocation}}  
+        
+
+
+
+  
+    
+  
