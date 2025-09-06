@@ -67,7 +67,7 @@ jobs:
           name: AppModulePicker
           path: '${{ github.workspace }}/AppModulePicker'
       - name: Rename broadcastjs/bundle.js into bbundle.js
-        run: bundle.js bbundle.js
+        run: mv bundle.js bbundle.js
         working-directory: ${{ github.workspace }}/AppModulePicker
       - name: Update PCF control version with ${{ github.ref }}
         uses: Mudlet/xmlstarlet-action@v1.2
