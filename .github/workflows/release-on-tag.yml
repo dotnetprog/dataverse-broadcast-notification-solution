@@ -1,5 +1,9 @@
 name: Create Release on Tag
-run-name: BuildTag ${{ github.ref }}
+run-name: BuildTag ${{ github.ref_name }}
+permissions:
+  contents: read
+  issues: read
+  checks: write
 on:
   push:
     # Sequence of patterns matched against refs/tags
