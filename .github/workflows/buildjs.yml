@@ -74,26 +74,17 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           verbose: true # optional (default = false)
       - name: Create destination folder
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GITHUB_TOKEN: ${{ github.token }}
         if: ${{ success() && inputs.publishArtifact   }}
-        run: mkdir -p ${{inputs.artifactlocation}}
+        run: mkdir -p ${{ github.workspace }}${{inputs.artifactlocation}}
       - name: Copy file outputjs into staging directory
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GITHUB_TOKEN: ${{ github.token }}
         if: ${{ success() && inputs.publishArtifact   }}
-        run: cp ${{ inputs.projectdirectory }}/dist/broadcast.js ${{inputs.artifactlocation}}
+        run: cp ${{ inputs.projectdirectory }}/dist/broadcast.js ${{ github.workspace }}${{inputs.artifactlocation}}
       - name: Upload ${{ inputs.componentName }} artifact
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GITHUB_TOKEN: ${{ github.token }}
         if: ${{ success() && inputs.publishArtifact   }} 
         uses: actions/upload-artifact@v4
         with:
            name: ${{ inputs.componentName }}
-           path: ${{inputs.artifactlocation}}  
+           path: ${{ github.workspace }}${{inputs.artifactlocation}}  
         
 
 

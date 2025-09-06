@@ -25,7 +25,7 @@ jobs:
       publishArtifact: true
       testCommand: 'test:ci'
       publishCodeCov: false
-      artifactlocation: '${{ github.workspace }}/dist'
+      artifactlocation: '/dist'
     secrets:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           
@@ -37,7 +37,7 @@ jobs:
       pcfdirectory: 'src/broadcast-pcf/appmodulepicker'
       publishArtifact: true
       componentName: AppModulePicker
-      artifactlocation: '${{ github.workspace }}/dist'
+      artifactlocation: '/dist'
   release:
     name: Create Release from tag
     needs: [ buildAppModulePickerPCF, buildBroadCastJs]
