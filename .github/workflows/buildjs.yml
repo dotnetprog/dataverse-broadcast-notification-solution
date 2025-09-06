@@ -26,6 +26,8 @@ on:
         required: false
         type: string 
     secrets:
+      GITHUB_TOKEN:
+       required: true
       CODECOV_TOKEN:
        required: false 
 jobs:
@@ -74,12 +76,21 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           verbose: true # optional (default = false)
       - name: Create destination folder
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: ${{ success() && inputs.publishArtifact   }}
         run: mkdir -p ${{inputs.artifactlocation}}
       - name: Copy file outputjs into staging directory
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: ${{ success() && inputs.publishArtifact   }}
         run: cp ${{ inputs.projectdirectory }}/dist/broadcast.js ${{inputs.artifactlocation}}
       - name: Upload ${{ inputs.componentName }} artifact
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: ${{ success() && inputs.publishArtifact   }} 
         uses: actions/upload-artifact@v4
         with:
