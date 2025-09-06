@@ -27,7 +27,6 @@ jobs:
       publishCodeCov: false
       artifactlocation: '${{ github.workspace }}/dist'
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           
   
@@ -39,8 +38,6 @@ jobs:
       publishArtifact: true
       componentName: AppModulePicker
       artifactlocation: '${{ github.workspace }}/dist'
-    secrets:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   release:
     name: Create Release from tag
     needs: [ buildAppModulePickerPCF, buildBroadCastJs]

@@ -39,7 +39,6 @@ jobs:
           publishCodeCov: true
           artifactlocation: '${{ github.workspace }}/dist'
         secrets:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           
   
@@ -50,5 +49,3 @@ jobs:
           pcfdirectory: 'src/broadcast-pcf/appmodulepicker'
           publishArtifact: false
           componentName: AppModulePicker
-        secrets:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
