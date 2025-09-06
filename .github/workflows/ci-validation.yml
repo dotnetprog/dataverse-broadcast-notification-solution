@@ -47,5 +47,6 @@ jobs:
         uses: ./.github/workflows/buildpcf.yml
         with:
           pcfdirectory: 'src/broadcast-pcf/appmodulepicker'
-          publishArtifact: false
+          publishArtifact: true
           componentName: AppModulePicker
+          artifactlocation: '${{ github.workspace }}/dist'
