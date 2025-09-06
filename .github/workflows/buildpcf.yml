@@ -36,7 +36,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GITHUB_TOKEN: ${{ github.token }}
        if: ${{ success() && inputs.publishArtifact   }} 
-       run: mkdir -p ${{inputs.artifactlocation}}
+       run: mkdir -p ${{ github.workspace }}/dist
      - name: Copy file output pcf bundle into staging directory
        env:
           GH_TOKEN: ${{ github.token }}
