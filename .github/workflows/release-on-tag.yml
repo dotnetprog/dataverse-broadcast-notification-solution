@@ -69,20 +69,20 @@ jobs:
       - name: Rename broadcastjs/bundle.js into bbundle.js
         run: mv bundle.js bbundle.js
         working-directory: ${{ github.workspace }}/AppModulePicker
-      - name: Update PCF control version with ${{ github.ref }}
+      - name: Update PCF control version with ${{ github.ref_name }}
         uses: Mudlet/xmlstarlet-action@v1.2
         with:
           args: >-
             ed -L --update "/manifest/control/@version"
             -v "${{ steps.gitversion.outputs.majorMinorPatch }}"
-            ${{ github.workspace }}/AppModulePicker/ControlManifest.xml
+            AppModulePicker/ControlManifest.xml
       - name: Update Solution.xml Version with semver
         uses: Mudlet/xmlstarlet-action@v1.2
         with:
           args: >-
             ed -L --update "/ImportExportXml/SolutionManifest/Version"
             -v "${{ steps.gitversion.outputs.assemblySemVer }}"
-            ${{ github.workspace }}/src/broadcast-solution/Other/Solution.xml
+            src/broadcast-solution/Other/Solution.xml
       - name: delete bundle.js from the solution directory
         run: |
           rm src/broadcast-solution/Controls/fdn_Broadcast.AppModulePicker/bundle.js
