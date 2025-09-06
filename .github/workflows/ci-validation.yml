@@ -41,8 +41,8 @@ jobs:
               testCommand: 'test:ci'
               publishCodeCov: ${{github.event_name == 'pull_request'}}
               artifactlocation: ${{env.artifactlocation}}
-          secrets:
-              CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          
+  
             
     buildAppModulePickerPCF:
         runs-on: ubuntu-latest
