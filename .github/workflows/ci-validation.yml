@@ -1,6 +1,6 @@
 name: CI - Validation
 permissions:
-  contents: read
+  contents: write
   issues: read
   checks: write
   pull-requests: write
