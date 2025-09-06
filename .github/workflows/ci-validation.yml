@@ -32,18 +32,18 @@ jobs:
     buildBroadCastJs:
         uses: ./.github/workflows/templates/buildjs.yml
         with:
-          projectdirectory: ${{ env.broadcastjsWorkingDirectory }}
+          projectdirectory: 'src/broadcast-typescript'
           componentName: broadcastjs
           publishArtifact: false
           testCommand: 'test:ci'
           publishCodeCov: ${{github.event_name == 'pull_request'}}
-          artifactlocation: ${{env.artifactlocation}}
+          artifactlocation: '${{ github.workspace }}/dist'
           
   
             
     buildAppModulePickerPCF:
         uses: ./.github/workflows/templates/buildpcf.yml
         with:
-          pcfdirectory: ${{ env.pcfWorkkingDirectory }}
+          pcfdirectory: 'src/broadcast-pcf/appmodulepicker'
           publishArtifact: false
           componentName: AppModulePicker
