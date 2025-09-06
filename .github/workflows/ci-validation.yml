@@ -30,7 +30,7 @@ jobs:
                 solution-file: artifactlocation/broadcast_solution.zip
                 solution-type: Unmanaged
     buildBroadCastJs:
-        uses: ./github/workflows/templates/buildjs.yml
+        uses: ./.github/workflows/templates/buildjs.yml
         with:
           projectdirectory: ${{ env.broadcastjsWorkingDirectory }}
           componentName: broadcastjs
