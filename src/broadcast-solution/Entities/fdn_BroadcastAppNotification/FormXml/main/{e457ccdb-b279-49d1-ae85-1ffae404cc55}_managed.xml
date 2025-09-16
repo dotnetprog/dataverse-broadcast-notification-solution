@@ -41,6 +41,7 @@
                       <cell id="{30dc498c-80d9-4928-9ed8-1a996281002b}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
                           <label description="Application Host" languagecode="1033" />
+                          <label description="Application ciblé" languagecode="1036" />
                         </labels>
                         <control id="fdn_appmoduleid" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="fdn_appmoduleid" disabled="false" uniqueid="{eee49d4d-f454-4537-ad67-5a790912573a}" />
                       </cell>
@@ -141,6 +142,60 @@
             </column>
           </columns>
         </tab>
+        <tab name="tab_action" id="a5a62875-2acd-4a9d-95a5-fa86a1f55b7c" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Action" languagecode="1033" />
+            <label description="Action" languagecode="1036" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_action_section_type" id="b34ad29c-5161-4107-b71d-0feebdb6ceb9" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Action Type" languagecode="1033" />
+                    <label description="Type d'action" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{d703621b-8aaa-4683-b969-26add3a898f1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="fdn_actiontype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="fdn_actiontype" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="tab_action_section_url" id="6b155796-acfc-476a-bc16-368581191f62" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Url Action" languagecode="1033" />
+                    <label description="Action - Lien Web " languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{539d8513-3dda-4af2-a66e-5276f812d80e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="fdn_buttondefaulttext" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="fdn_buttondefaulttext" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cdd97040-ecc3-4ced-9339-ccf7505a34ec}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="fdn_buttonactionurl" classid="{71716B6C-711E-476C-8AB8-5D11542BFB47}" datafieldname="fdn_buttonactionurl" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
       </tabs>
       <header id="{6583b3f8-b496-4cab-b381-542f821e8066}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
         <rows>
@@ -229,6 +284,16 @@
           </customControl>
         </controlDescription>
       </controlDescriptions>
+      <formLibraries>
+        <Library name="fdn_/scripts/broadcast.js" libraryUniqueId="{f1891d15-a77c-4a0f-9fcc-3160bef584a6}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="broadcast.forms.fdn_broadcastappnotification.onLoad" libraryName="fdn_/scripts/broadcast.js" handlerUniqueId="{e56066c0-8ded-4706-b6e8-315638d4e66b}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

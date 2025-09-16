@@ -59,6 +59,22 @@
                     <row />
                   </rows>
                 </section>
+                <section name="generaltab_section_action" id="ad9b1739-57f8-4c2f-ab59-be6a7f7c5cdf" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Action" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{9a3ebfc3-7ae3-4887-9bed-9b4edff7fdba}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="fdn_actionbuttondisplaytext" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="fdn_actionbuttondisplaytext" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
               </sections>
             </column>
           </columns>
