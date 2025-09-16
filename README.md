@@ -7,7 +7,7 @@ Helpful to notify your dataverse end users.
 ![Broadcast App](docs/assets/imgs/appThumbnail.png "Broadcast App")
 
 ## ⭐Key Features⭐
-✔️ Enable PowerPlatform Admins/Super Users to broadcast global notifications **per app** to their end users \
+✔️ Enable PowerPlatform Admins/Super Users to broadcast global notifications **per app** to their end users 
 - The app is only localized in english and french.
 
 ✔️ Provide a dedicated model-driven app "*AppNotification Broadcasts Management*" to manage your global notifications \
@@ -16,8 +16,8 @@ Helpful to notify your dataverse end users.
 - one for end users: `App Global Notification - Reader` 
 
 ✔️ 100% supported code \
-✔️ Notifications's content can be localized in english and french.
-
+✔️ Notifications's content can be localized in english and french. \
+✔️🆕 Notifications can now have an action button that opens a web page. *(starting release v1.1.0)*
 ## 🎯 Most popular use cases 📂
 -  Notify users system will shutdown for maintenance  🚧
 -  Any kind of announcements 📣
@@ -97,6 +97,9 @@ If you want to use your own security roles:
 
 ### When more than one notification (opened)
 <img src="docs/assets/imgs/manySample_Opened.png" alt="drawing" height="80"/>
+
+### 🆕 With an Action button
+<img src="docs/assets/imgs/actiondemo.png" alt="drawing" height="80"/>
 
 ## Feel free to contribute or submit ideas/suggestions/issues
 
