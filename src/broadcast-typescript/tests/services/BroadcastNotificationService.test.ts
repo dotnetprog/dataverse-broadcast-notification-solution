@@ -1,7 +1,7 @@
 import { fdn_broadcastappnotification } from "@app/modules/domain";
 import { broadcastNotificationService, CachedValue } from "@app/modules/services";
 import { faker } from "@faker-js/faker";
-import { createRandomAppNotification } from "@tests/fakers";
+import { createRandomAppNotificationWithNoAction } from "@tests/fakers";
 import { simpleRetrieveMultipleMock } from "@tests/helpers/mockHelpers";
 import { v4 } from "uuid";
 import { MockInstance } from "vitest";
@@ -12,14 +12,18 @@ describe("Given a broadcast notification service",() => {
     describe("When it retrieves published notifications",()=>{
         let retrieveMultipleSpy:MockInstance<typeof Xrm.WebApi.retrieveMultipleRecords>;
         const notifications:fdn_broadcastappnotification[] = 
-                faker.helpers.multiple(() =>createRandomAppNotification(appId),{count:2});
+                faker.helpers.multiple(() =>createRandomAppNotificationWithNoAction(appId),{count:2});
         const filterOptions = `&$filter=statuscode eq 2 and fdn_appmoduleid eq '${appId}'&$orderby=fdn_level asc`;
         const columns = ["fdn_appmoduleid",
             "fdn_message",
             "fdn_broadcastappnotificationid",
-            "fdn_level"
+            "fdn_level",
+            "fdn_buttondefaulttext",
+            "fdn_buttonactionurl",
+            "fdn_actiontype"
         ];
-        const expandOptions = `&$expand=fdn_localizednotificationcontent_AppNotificationConfigId_fdn_broadcastappnotification($select=fdn_contentmessage,fdn_language;$filter=statecode eq 0)`;
+        const expandColumns = ['fdn_language','fdn_contentmessage','fdn_actionbuttondisplaytext'];
+        const expandOptions = `&$expand=fdn_localizednotificationcontent_AppNotificationConfigId_fdn_broadcastappnotification($select=${expandColumns.join(',')};$filter=statecode eq 0)`;
         const expectedQueryOptions = `?$select=${columns.join(',')}`+expandOptions+filterOptions;
         beforeEach(() =>{
             retrieveMultipleSpy = simpleRetrieveMultipleMock(notifications);
@@ -54,7 +58,7 @@ describe("Given a broadcast notification service",() => {
             //arrange
             const cachedItems:CachedValue<fdn_broadcastappnotification[]> ={
                 timestamp: Date.now() - ((60*5) * 1000),
-                value:faker.helpers.multiple(() =>createRandomAppNotification(appId),{count:1})
+                value:faker.helpers.multiple(() =>createRandomAppNotificationWithNoAction(appId),{count:1})
             };
             sessionStorage.setItem(_cacheKey,JSON.stringify(cachedItems));
             //act

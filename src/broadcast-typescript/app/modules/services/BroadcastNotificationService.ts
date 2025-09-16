@@ -36,9 +36,13 @@ export class BroadcastNotificationService implements IBroadcastNotificationServi
         const columns = ["fdn_appmoduleid",
             "fdn_message",
             "fdn_broadcastappnotificationid",
-            "fdn_level"
+            "fdn_level",
+            "fdn_buttondefaulttext",
+            "fdn_buttonactionurl",
+            "fdn_actiontype"
         ];
-        const expandOptions = `&$expand=fdn_localizednotificationcontent_AppNotificationConfigId_fdn_broadcastappnotification($select=fdn_contentmessage,fdn_language;$filter=statecode eq 0)`;
+        const expandColumns = ['fdn_language','fdn_contentmessage','fdn_actionbuttondisplaytext'];
+        const expandOptions = `&$expand=fdn_localizednotificationcontent_AppNotificationConfigId_fdn_broadcastappnotification($select=${expandColumns.join(',')};$filter=statecode eq 0)`;
         const queryOptions = `?$select=${columns.join(',')}`+expandOptions+filterOptions;
         const result = await this.webApi.retrieveMultipleRecords("fdn_broadcastappnotification", queryOptions);
         const notifications = result.entities as fdn_broadcastappnotification[];
@@ -63,13 +67,16 @@ function cleanNotification(e:fdn_broadcastappnotification){
         "fdn_message",
         "fdn_broadcastappnotificationid",
         "fdn_level",
-        "fdn_localizednotificationcontent_AppNotificationConfigId_fdn_broadcastappnotification"];
+        "fdn_localizednotificationcontent_AppNotificationConfigId_fdn_broadcastappnotification",
+        "fdn_buttondefaulttext",
+        "fdn_buttonactionurl",
+        "fdn_actiontype"];
     let n = removeODataGarbages(e,keysToKeep);
     const lmg = n.fdn_localizednotificationcontent_AppNotificationConfigId_fdn_broadcastappnotification;
     if(!lmg || lmg.length === 0){
         return n;
     }
-    lmg.map(l => removeODataGarbages(l,["fdn_contentmessage","fdn_language"]));
+    lmg.map(l => removeODataGarbages(l,["fdn_contentmessage","fdn_language","fdn_actionbuttondisplaytext"]));
     return n;
 }
 function removeODataGarbages<T>(e:T,keys:string[]){

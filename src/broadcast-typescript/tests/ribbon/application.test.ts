@@ -1,9 +1,8 @@
 import { v4 } from "uuid";
 import { MockInstance } from "vitest";
 import { XrmMockGenerator, XrmStaticMock } from "xrm-mock";
-import { notificationStore } from "@app/modules/services";
-import { broadcastNotificationService } from "@app/modules/services";
-import { createRandomAppNotification, createRandomUiNotification } from "@tests/fakers";
+import { notificationStore,broadcastNotificationService } from "@app/modules/services";
+import { createRandomAppNotificationWithNoAction, createRandomUiNotification } from "@tests/fakers";
 import { faker } from "@faker-js/faker";
 import { ribbon } from "@app/modules/ribbon";
 
@@ -18,7 +17,7 @@ describe("Given an application ribbon",() =>{
     let clearGlobalNotifSpy:MockInstance<typeof Xrm.App.clearGlobalNotification>;
     let getPublishedNotificationSpy:MockInstance<typeof broadcastNotificationService.getPublishedNotifications>;
     const cachedNotifications = faker.helpers.multiple(() => createRandomUiNotification(appId),{count:3}); 
-    const livenotifications = faker.helpers.multiple(() => createRandomAppNotification(appId),{count:3});
+    const livenotifications = faker.helpers.multiple(() => createRandomAppNotificationWithNoAction(appId),{count:3});
     beforeEach(() => {
         xrmMock = XrmMockGenerator.initialise();
         const ctx = xrmMock.Utility.getGlobalContext();
@@ -37,7 +36,6 @@ describe("Given an application ribbon",() =>{
         Xrm.App.clearGlobalNotification = vitest.fn();
         clearGlobalNotifSpy = vitest.spyOn(Xrm.App,"clearGlobalNotification");
         getPublishedNotificationSpy = vitest.spyOn(broadcastNotificationService,"getPublishedNotifications").mockResolvedValue(livenotifications);
-
         
     });
     describe("When it renders notifications on the right page",() =>{
