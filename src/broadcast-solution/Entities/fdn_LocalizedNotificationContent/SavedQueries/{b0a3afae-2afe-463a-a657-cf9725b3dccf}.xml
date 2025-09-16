@@ -12,6 +12,7 @@
         <row name="result" id="fdn_localizednotificationcontentid">
           <cell name="fdn_language" width="100" />
           <cell name="fdn_contentmessage" width="300" />
+          <cell name="fdn_actionbuttondisplaytext" width="195" />
         </row>
       </grid>
     </layoutxml>
@@ -25,6 +26,7 @@
           </filter>
           <attribute name="fdn_language" />
           <attribute name="fdn_contentmessage" />
+          <attribute name="fdn_actionbuttondisplaytext" />
         </entity>
       </fetch>
     </fetchxml>

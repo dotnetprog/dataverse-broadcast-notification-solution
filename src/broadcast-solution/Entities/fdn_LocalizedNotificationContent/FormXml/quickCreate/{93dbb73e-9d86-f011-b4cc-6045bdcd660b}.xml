@@ -59,6 +59,15 @@
                     <row />
                     <row />
                     <row />
+                    <row>
+                      <cell id="{54b2ffc5-28a1-47d1-8025-8ceca4b8e366}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Action Button Display Text" languagecode="1033" />
+                          <label description="Texte d'affichage du bouton" languagecode="1036" />
+                        </labels>
+                        <control id="fdn_actionbuttondisplaytext" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="fdn_actionbuttondisplaytext" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
